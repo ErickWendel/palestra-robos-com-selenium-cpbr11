@@ -25,4 +25,4 @@
 
 #### Slides
 
-* [Campus Party SP 2018 - Construindo Robôs automatizados para extração de informações](https://github.com/ErickWendel/palestra-robos-com-selenium-cpbr11)
+* [Campus Party SP 2018 - Construindo Robôs automatizados para extração de informações](http://bit.ly/cpbr-erickwendel-robos-automatizados-slides)
