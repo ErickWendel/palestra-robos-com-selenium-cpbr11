@@ -1,0 +1,59 @@
+version: '3'
+services: 
+
+  selenium-hub:
+    container_name: selenium-hub
+    image: selenium/hub:3.8.1-chlorine
+    ports:
+    - 4444:4444
+    networks:
+    - app-network
+    
+ 
+  chrome:
+    image: selenium/node-chrome-debug
+    #pwd = secret
+    ## voce pode acessar seu chrome, via VNC Viewer
+    ## Apontando para localhost:5900 com a senha pwd
+    ports:
+     - 5900:5900
+    environment: 
+      HUB_HOST: selenium-hub
+      
+    links:
+    - selenium-hub 
+    networks:
+      - app-network
+    volumes:
+      - /dev/shm:/dev/shm  
+ 
+  mongodb:
+    image: mongo:3.5
+    ports:
+    - "27017:27017"
+    volumes: 
+    - "./db:/usr/share/data/db"
+
+    networks: 
+    - app-network
+
+  app:
+    build: .
+    links: 
+      - chrome
+    depends_on:
+      - chrome
+    
+    environment:
+      SELENIUM_HOST: selenium-hub
+      SELENIUM_PORT: 4444
+      MONGO_HOST: mongodb
+  
+    networks: 
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+ 
