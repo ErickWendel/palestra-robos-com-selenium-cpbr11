@@ -4,7 +4,7 @@
 
 #### Descrição
 
-* Iremos a partir de uma rotina, extrair todos os ebooks gratuitos do site da Marvel Comics e gravar em nossa base de dados;
+* Extração de ebooks gratuitos do site da Marvel Comics e gravar em nossa base de dados
 
 <img title="Logs do terminal" alt="resultado da demonstração, exibindo logs de atividade" src="https://raw.githubusercontent.com/ErickWendel/palestra-robos-com-selenium-cpbr11/master/resources/site-marvel.png" width=400></img>
 
