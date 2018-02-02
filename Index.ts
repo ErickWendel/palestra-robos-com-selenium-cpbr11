@@ -6,7 +6,7 @@ import { MongoClient } from 'mongodb';
   try {
     // rodando pelo docker, temos um leve probleminha de nao identificar quando o
     //selenium está de pé, entao esperamos ele subir para continuar
-    console.log('Inicializando Aplicação... Aguardando Selenium Server.')
+    console.log('Inicializando Aplicação... Aguardando Selenium Server.');
     await new Promise(resolve => setTimeout(resolve, 3000));
     //   const connection = await MongoClient.connect('mongodb://localhost:27017');
     const connection = await MongoClient.connect(
@@ -17,6 +17,7 @@ import { MongoClient } from 'mongodb';
     const builder = await new Builder();
     const options = new Options();
     // para rodar de modo invisivel
+    //só funciona quando rodar local, no docker são outros params
     options.addArguments('headless');
     // modo anonimo
     options.addArguments('--incognito');
